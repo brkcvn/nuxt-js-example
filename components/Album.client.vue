@@ -33,6 +33,13 @@ onMounted(async () => {
     const userId = Number(id);
     if (!isNaN(userId)) {
         await store.fetchUserAlbumsByUserId(userId);
+
+        const cookie = useCookie('token', {
+            maxAge: 60 * 60 * 24 * 1,
+            sameSite: 'strict',
+            secure: true,
+        });
+        cookie.value = `albumId=${userId}`;
     } else {
         console.error('Invalid user ID:', id);
     }

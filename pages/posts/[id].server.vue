@@ -1,5 +1,8 @@
 <template>
-    <Post v-if="post" :data="post" />
+    <div>
+        <Post v-if="post" :data="post" />
+        <p>{{ formatCurrency(1345) }}</p>
+    </div>
 </template>
 
 <script setup lang="ts">
