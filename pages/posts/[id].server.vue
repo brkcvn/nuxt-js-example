@@ -1,7 +1,7 @@
 <template>
     <div>
         <Post v-if="post" :data="post" />
-        <p>{{ formatCurrency(1345) }}</p>
+        <p class="text-primary">{{ formatCurrency(1345) }}</p>
     </div>
 </template>
 

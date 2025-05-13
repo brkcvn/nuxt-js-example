@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     componentIslands: true
   },
   css: ['~/assets/css/main.css'],
-  modules: ['@pinia/nuxt', '@nuxt/image'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@vee-validate/nuxt'],
   vite: {
     plugins: [
       tailwindcss(),
