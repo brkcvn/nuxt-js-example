@@ -10,14 +10,15 @@ import Post from '@/components/Post.vue';
 import type { PostProps } from '~/types';
 
 definePageMeta({
-    layout: 'custom'
+    layout: 'custom',
+    middleware: ['posts'],
 })
 
 const route = useRoute();
 const userId = route.params.id;
 
 const { data } = await useFetch(
-    `https://jsonplaceholder.typicode.com/posts/${userId}`,
+    `/api/posts/${userId}`,
     {
         key: `user-albums-${userId}`,
         server: true,
