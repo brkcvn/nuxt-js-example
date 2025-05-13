@@ -2,6 +2,7 @@
     <div>
         <Post v-if="post" :data="post" />
         <p class="text-primary">{{ formatCurrency(1345) }}</p>
+         <p class="text-3xl font-bold">{{ t('welcome') }}</p>
     </div>
 </template>
 
@@ -15,7 +16,9 @@ import type { PostProps } from '~/types';
 definePageMeta({
     layout: 'custom',
     middleware: ['posts'],
-})
+});
+
+const { t } = useI18n();
 
 const route = useRoute();
 const userId = route.params.id;

@@ -16,6 +16,8 @@
             </ul>
         </div>
 
+        <p class="text-3xl font-bold">{{ t('welcome') }}</p>
+
         <Form @submit="onSubmit" :validation-schema="schema" class="space-y-5 lg:max-w-3xl my-6 mx-auto">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -31,8 +33,7 @@
                 <ErrorMessage name="password" class="text-sm text-red-500 mt-1" />
             </div>
 
-            <button type="submit"
-                class="w-full font-semibold py-2 px-4 rounded-md transition duration-200">
+            <button type="submit" class="w-full font-semibold py-2 px-4 rounded-md transition duration-200">
                 Gönder
             </button>
         </Form>
@@ -49,10 +50,14 @@ import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
 
+import { useI18n } from 'vue-i18n';
+
 const mainStore = useMainStore();
 const { users } = storeToRefs(mainStore);
 
 const aboutUsers = ref<UserProps[]>([]);
+
+const { t } = useI18n();
 
 onMounted(async () => {
     await mainStore.fetchUsers();

@@ -9,7 +9,26 @@ export default defineNuxtConfig({
     componentIslands: true
   },
   css: ['~/assets/css/main.css'],
-  modules: ['@pinia/nuxt', '@nuxt/image', '@vee-validate/nuxt'],
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/image',
+    '@vee-validate/nuxt',
+    '@nuxtjs/i18n',
+  ],
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'nl', name: 'Nederlands', file: 'nl.json' }
+    ],
+    strategy: 'prefix',
+    langDir: 'locales/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n',
+      redirectOn: 'root'
+    }
+  },
   vite: {
     plugins: [
       tailwindcss(),
