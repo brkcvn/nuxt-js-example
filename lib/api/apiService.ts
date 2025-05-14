@@ -20,7 +20,9 @@ export const apiService = {
 
     fetchUserPosts: (userId: number) => fetchData(API_ROUTES.POSTS, { userId }),
 
-    fetchPostComments: (postId: number) => fetchData(API_ROUTES.COMMENTS, { postId }),
+    fetchPostComments: (postId: number) =>
+        fetchData(API_ROUTES.COMMENTS, { postId }),
 
-    fetchUserAlbums: (userId: number) => fetchData(API_ROUTES.ALBUMS, { userId })
+    fetchUserAlbums: (userId: number) =>
+        fetchData(API_ROUTES.ALBUMS, { userId }),
 };

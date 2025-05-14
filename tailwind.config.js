@@ -12,9 +12,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                test: '#ffffff'
+                test: '#ffffff',
             },
         },
     },
     plugins: [],
-}
+};

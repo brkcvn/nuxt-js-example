@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h1 class="text-3xl font-bold underline">
-            Custom Layout
-        </h1>
+        <h1 class="text-3xl font-bold underline">Custom Layout</h1>
 
         <div>
             <h2 class="text-2xl font-bold">Custom Layout</h2>

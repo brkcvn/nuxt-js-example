@@ -32,15 +32,20 @@ export const useMainStore = defineStore('main', {
                 email: user.email,
                 phone: user.phone,
                 avatar: `assets/images/user-${(user.id % 3 || index % 2) + 1}.png`,
-                location: user.address ? `${user.address.street}\n${user.address.city}` : 'No address',
+                location: user.address
+                    ? `${user.address.street}\n${user.address.city}`
+                    : 'No address',
                 company: user.company ? user.company.name : 'No company',
                 website: user.website,
             }));
         },
         getUserTodos(state) {
             const todoUpdates = getStoredTodoUpdates();
-            return state.userTodos.map(todo => {
-                const completed = todo.id in todoUpdates ? todoUpdates[todo.id] : todo.completed;
+            return state.userTodos.map((todo) => {
+                const completed =
+                    todo.id in todoUpdates
+                        ? todoUpdates[todo.id]
+                        : todo.completed;
                 return { ...todo, completed };
             });
         },
@@ -54,7 +59,7 @@ export const useMainStore = defineStore('main', {
             }));
         },
         getUserAlbums(state) {
-            return state.userAlbums.map(album => {
+            return state.userAlbums.map((album) => {
                 const images: string[] = [];
                 for (let i = 0; i < 6; i++) {
                     images.push(`assets/albums/album-${i + 1}.jpg`);
@@ -68,11 +73,15 @@ export const useMainStore = defineStore('main', {
     },
 
     actions: {
-        async fetchData<T>(apiMethod: () => Promise<T>, stateKey: keyof StateProps, errorMessage: string) {
+        async fetchData<T>(
+            apiMethod: () => Promise<T>,
+            stateKey: keyof StateProps,
+            errorMessage: string,
+        ) {
             try {
                 this.error = null;
                 const data = await apiMethod();
-                // @ts-ignore
+                // @ts-expect-error: This assignment is safe because we know the type of data
                 this[stateKey] = data;
                 return data;
             } catch (err) {
@@ -82,23 +91,43 @@ export const useMainStore = defineStore('main', {
         },
 
         fetchUsers() {
-            return this.fetchData(apiService.fetchUsers, 'users', 'Failed to fetch users');
+            return this.fetchData(
+                apiService.fetchUsers,
+                'users',
+                'Failed to fetch users',
+            );
         },
         fetchUserTodosByUserId(userId: number) {
-            return this.fetchData(() => apiService.fetchUserTodos(userId), 'userTodos', 'Failed to fetch user todos');
+            return this.fetchData(
+                () => apiService.fetchUserTodos(userId),
+                'userTodos',
+                'Failed to fetch user todos',
+            );
         },
         fetchUserPostsByUserId(userId: number) {
-            return this.fetchData(() => apiService.fetchUserPosts(userId), 'userPosts', 'Failed to fetch user posts');
+            return this.fetchData(
+                () => apiService.fetchUserPosts(userId),
+                'userPosts',
+                'Failed to fetch user posts',
+            );
         },
         fetchCommentsByPostId(postId: number) {
-            return this.fetchData(() => apiService.fetchPostComments(postId), 'userComments', 'Failed to fetch comments');
+            return this.fetchData(
+                () => apiService.fetchPostComments(postId),
+                'userComments',
+                'Failed to fetch comments',
+            );
         },
         fetchUserAlbumsByUserId(userId: number) {
-            return this.fetchData(() => apiService.fetchUserAlbums(userId), 'userAlbums', 'Failed to fetch user albums');
+            return this.fetchData(
+                () => apiService.fetchUserAlbums(userId),
+                'userAlbums',
+                'Failed to fetch user albums',
+            );
         },
 
         toggleTodoStatus(todoId: number) {
-            const idx = this.userTodos.findIndex(t => t.id === todoId);
+            const idx = this.userTodos.findIndex((t) => t.id === todoId);
             if (idx !== -1) {
                 const newStatus = !this.userTodos[idx].completed;
                 saveTodoUpdates(todoId, newStatus);

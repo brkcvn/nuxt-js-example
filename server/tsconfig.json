@@ -1,14 +1,10 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "types": [
-      "node"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "types": ["node"],
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*"]
+        }
     }
-  }
 }

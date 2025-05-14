@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h1 class="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
         <div>
             <p>Index dynamic {{ id }}</p>
         </div>
@@ -21,22 +19,22 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '~/stores/main';
-import { storeToRefs } from 'pinia';
-import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+    import { useMainStore } from '~/stores/main';
+    import { storeToRefs } from 'pinia';
+    import { onMounted } from 'vue';
+    import { useRoute } from 'vue-router';
 
-const mainStore = useMainStore();
-const { userAlbums } = storeToRefs(mainStore);
-const route = useRoute();
-const id = route.params.id as string;
+    const mainStore = useMainStore();
+    const { userAlbums } = storeToRefs(mainStore);
+    const route = useRoute();
+    const id = route.params.id as string;
 
-onMounted(async () => {
-    const userId = Number(id);
-    if (!isNaN(userId)) {
-        await mainStore.fetchUserAlbumsByUserId(userId);
-    } else {
-        console.error('Invalid user ID:', id);
-    }
-});
+    onMounted(async () => {
+        const userId = Number(id);
+        if (!isNaN(userId)) {
+            await mainStore.fetchUserAlbumsByUserId(userId);
+        } else {
+            console.error('Invalid user ID:', id);
+        }
+    });
 </script>

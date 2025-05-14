@@ -6,11 +6,14 @@
 </template>
 
 <script setup lang="ts">
-import type { NuxtError } from '#app'
+    import type { NuxtError } from '#app';
 
-defineProps({
-    error: Object as () => NuxtError
-})
+    defineProps({
+        error: {
+            type: Object as () => NuxtError,
+            default: () => ({}),
+        },
+    });
 
-const handleError = () => clearError({ redirect: '/' })
+    const handleError = () => clearError({ redirect: '/' });
 </script>

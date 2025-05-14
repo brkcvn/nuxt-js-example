@@ -4,5 +4,5 @@ export const API_ROUTES = {
     TODOS: '/todos',
     POSTS: '/posts',
     COMMENTS: '/comments',
-    ALBUMS: '/albums'
+    ALBUMS: '/albums',
 };

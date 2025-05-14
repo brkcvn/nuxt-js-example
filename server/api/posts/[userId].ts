@@ -5,12 +5,15 @@ export default defineEventHandler(async (event) => {
     const { userId } = event.context.params!;
 
     try {
-        const response = await $fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
+        const response = await $fetch(
+            `https://jsonplaceholder.typicode.com/posts/${userId}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             },
-        });
+        );
 
         return response;
     } catch (error) {
@@ -22,4 +25,4 @@ export default defineEventHandler(async (event) => {
             },
         };
     }
-})
+});
