@@ -84,9 +84,11 @@ export interface AlbumProps {
 
 export interface StateProps {
   users: UserProps[];
-  userTodos:  TodoProps[];
-  userPosts:  PostProps[];
+  userTodos: TodoProps[];
+  userPosts: PostProps[];
   userComments: CommentProps[];
   userAlbums: AlbumProps[];
   error: string | null;
 }
+
+export type LangType = 'en' | 'nl'

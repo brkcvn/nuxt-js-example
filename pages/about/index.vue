@@ -18,6 +18,11 @@
 
         <p class="text-3xl font-bold">{{ t('welcome') }}</p>
 
+        <div>
+            <div @click="handleSelectedLang('en')" class="cursor-pointer">EN</div>
+            <div @click="handleSelectedLang('nl')" class="cursor-pointer">NL</div>
+        </div>
+
         <Form @submit="onSubmit" :validation-schema="schema" class="space-y-5 lg:max-w-3xl my-6 mx-auto">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -44,20 +49,20 @@
 import { useMainStore } from '~/stores/main';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
-import type { UserProps } from '~/types';
+import type { LangType, UserProps } from '~/types';
+import { useI18n } from 'vue-i18n';
 
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
 
-import { useI18n } from 'vue-i18n';
-
 const mainStore = useMainStore();
 const { users } = storeToRefs(mainStore);
+const selectedLang = ref('en');
 
 const aboutUsers = ref<UserProps[]>([]);
 
-const { t } = useI18n();
+const { t, setLocale } = useI18n();
 
 onMounted(async () => {
     await mainStore.fetchUsers();
@@ -74,5 +79,10 @@ const schema = toTypedSchema(
 const onSubmit = (values: any) => {
     debugger;
 };
+
+function handleSelectedLang(lang: LangType) {
+    selectedLang.value = lang;
+    setLocale(lang);
+}
 
 </script>
