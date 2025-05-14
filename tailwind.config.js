@@ -1,3 +1,4 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -11,12 +12,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: {
-                    DEFAULT: '#1DA1F2',
-                    500: '#1DA1F2',
-                },
+                test: '#ffffff'
             },
         },
     },
     plugins: [],
-};
+}

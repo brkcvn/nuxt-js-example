@@ -29,6 +29,12 @@ export default defineNuxtConfig({
       redirectOn: 'root'
     }
   },
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      autoprefixer: {},
+    },
+  },
   vite: {
     plugins: [
       tailwindcss(),
