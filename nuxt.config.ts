@@ -44,11 +44,6 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
-    eslint: {
-        config: {
-            stylistic: true,
-        },
-    },
     vite: {
         plugins: [tailwindcss(), svgLoader()],
     },
