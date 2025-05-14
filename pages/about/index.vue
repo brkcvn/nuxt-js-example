@@ -7,6 +7,7 @@
             <p>About page</p>
         </div>
 
+        <ArrowRight class="has-stroke stroke-red-600 w-24 h-24" />
         <div>
             <h2 class="text-2xl font-bold">Users</h2>
             <ul>
@@ -55,6 +56,7 @@ import { useI18n } from 'vue-i18n';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
+import { ArrowRight } from '~/components/Icons';
 
 const mainStore = useMainStore();
 const { users } = storeToRefs(mainStore);
@@ -84,5 +86,4 @@ function handleSelectedLang(lang: LangType) {
     selectedLang.value = lang;
     setLocale(lang);
 }
-
 </script>

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+svg.has-color>path,
+svg.has-color>g {
+    fill: inherit;
+    stroke: inherit;
+}
+
+svg.has-stroke > path {
+  stroke: inherit;
+}
