@@ -1,7 +1,7 @@
 // stores/main.ts
 import { defineStore } from 'pinia';
 import type { StateProps } from '@/types';
-import { apiService } from '~/api/apiService';
+import { apiService } from '~/lib/api/apiService';
 
 const TODO_UPDATES_KEY = 'user_todo_updates';
 function getStoredTodoUpdates(): Record<number, boolean> {

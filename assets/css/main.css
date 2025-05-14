@@ -2,10 +2,18 @@
 
 svg.has-color>path,
 svg.has-color>g {
-    fill: inherit;
-    stroke: inherit;
+  fill: inherit;
+  stroke: inherit;
 }
 
-svg.has-stroke > path {
+svg.has-stroke>path {
   stroke: inherit;
+}
+
+.font-lato {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  font-family: "Lato", sans-serif;
 }

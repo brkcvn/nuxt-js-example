@@ -15,6 +15,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vee-validate/nuxt',
     '@nuxtjs/i18n',
+    ['@nuxtjs/google-fonts', {
+      families: {
+        Lato: [100, 300, 400, 700, 900],
+      }
+    }],
   ],
   i18n: {
     defaultLocale: 'en',
