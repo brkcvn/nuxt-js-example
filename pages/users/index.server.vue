@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h1 class="text-3xl font-bold underline">Hello world!</h1>
-        <div>
-            <p>Users static page</p>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-indigo-700 underline mb-6">
+            Hello world!
+        </h1>
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg shadow-sm">
+            <p class="text-gray-700">Users static page</p>
         </div>
     </div>
 </template>

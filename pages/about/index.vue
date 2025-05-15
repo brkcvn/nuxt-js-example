@@ -1,34 +1,50 @@
 <template>
-    <div>
-        <h1 class="text-3xl italic font-light">Hello world!</h1>
-        <div>
-            <p>About page</p>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl italic font-light text-indigo-700 mb-6">
+            Hello world!
+        </h1>
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg shadow-sm">
+            <p class="text-gray-700">About page</p>
         </div>
 
-        <ArrowRight class="has-stroke stroke-red-600 w-24 h-24" />
-        <div>
-            <h2 class="text-2xl font-bold">Users</h2>
-            <ul>
-                <li v-for="user in aboutUsers" :key="user.id">
-                    {{ user.name }} - {{ user.email }}
+        <ArrowRight class="has-stroke stroke-red-600 w-16 h-16 my-4" />
+
+        <div class="my-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Users</h2>
+            <ul class="divide-y divide-gray-200">
+                <li
+                    v-for="user in aboutUsers"
+                    :key="user.id"
+                    class="py-3 hover:bg-gray-50 px-2 rounded transition-colors"
+                >
+                    <span class="font-medium">{{ user.name }}</span> -
+                    <span class="text-gray-600">{{ user.email }}</span>
                 </li>
             </ul>
         </div>
 
-        <p class="text-3xl font-bold">{{ t('welcome') }}</p>
+        <p class="text-3xl font-bold text-center text-indigo-600 my-6">
+            {{ t('welcome') }}
+        </p>
 
-        <div>
-            <div class="cursor-pointer" @click="handleSelectedLang('en')">
+        <div class="flex space-x-4 justify-center mb-8">
+            <div
+                class="cursor-pointer px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+                @click="handleSelectedLang('en')"
+            >
                 EN
             </div>
-            <div class="cursor-pointer" @click="handleSelectedLang('nl')">
+            <div
+                class="cursor-pointer px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+                @click="handleSelectedLang('nl')"
+            >
                 NL
             </div>
         </div>
 
         <Form
             :validation-schema="schema"
-            class="space-y-5 lg:max-w-3xl my-6 mx-auto"
+            class="space-y-5 lg:max-w-2xl my-6 mx-auto bg-white p-6 rounded-lg shadow-lg"
             @submit="onSubmit"
         >
             <div>
@@ -42,7 +58,7 @@
                     name="email"
                     type="email"
                     as="input"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <ErrorMessage name="email" class="text-sm text-red-500 mt-1" />
             </div>
@@ -58,7 +74,7 @@
                     name="password"
                     type="password"
                     as="input"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <ErrorMessage
                     name="password"
@@ -68,7 +84,7 @@
 
             <button
                 type="submit"
-                class="w-full font-semibold py-2 px-4 rounded-md transition duration-200"
+                class="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-200"
             >
                 Gönder
             </button>

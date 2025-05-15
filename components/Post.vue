@@ -1,10 +1,14 @@
 <template>
-    <div>
-        <h1 class="text-3xl font-bold underline">Post Detail</h1>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <h1 class="text-3xl font-bold text-indigo-700 underline p-4 bg-gray-50">
+            Post Detail
+        </h1>
 
-        <div>
-            <h2 class="text-2xl font-bold">{{ data?.title }}</h2>
-            <p>{{ data?.body }}</p>
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                {{ data?.title }}
+            </h2>
+            <p class="text-gray-700 leading-relaxed">{{ data?.body }}</p>
         </div>
     </div>
 </template>

@@ -1,8 +1,12 @@
 <template>
-    <div>
-        <Post v-if="post" :data="post" />
-        <p>{{ formatCurrency(1345) }}</p>
-        <p class="text-3xl font-bold">{{ t('welcome') }}</p>
+    <div class="container mx-auto px-4 py-8">
+        <div v-if="post" class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <Post :data="post" />
+        </div>
+        <p class="text-lg text-gray-700 mb-4">{{ formatCurrency(1345) }}</p>
+        <p class="text-3xl font-bold text-center text-indigo-600 my-6">
+            {{ t('welcome') }}
+        </p>
     </div>
 </template>
 
