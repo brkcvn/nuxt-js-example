@@ -41,11 +41,11 @@
 
 <script setup lang="ts">
     import { useMainStore } from '~/stores/main';
-    import { onMounted, computed } from 'vue';
+    import { onMounted, ref } from 'vue';
     import { useRoute } from 'vue-router';
 
     const store = useMainStore();
-    const userAlbums = computed(() => store.getUserAlbums);
+    const userAlbums = ref(() => store.getUserAlbums);
 
     const route = useRoute();
     const id = route.params.id as string;
